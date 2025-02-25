@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: sans-serif;
+  background: linear-gradient(315deg, #0222d4 0%, #99b1fc 74%);
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+  color: orangered;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .accordion {
+  margin: 10px 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.container .accordion .heading {
+  padding: 15px;
+  font-size: 1.2rem;
+  background: linear-gradient(315deg, #ff9900 0%, #ff5025 74%);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container .accordion .heading::before {
+  content: "+";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.container .accordion.active .heading::before {
+  content: "-";
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.container .accordion .text {
+  height: 0;
+  background: #ddeedd;
+  overflow: hidden;
+  font-size: 1rem;
+  transition: height 0.3s ease-in-out;
+  padding: 0 15px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.container .accordion.active .text {
+  padding: 10px 15px;
+}
+
+.container .accordion.active .heading {
+  background: linear-gradient(315deg, #ff5025 0%, #ff9900 74%);
+  color: white;
+}
